@@ -1,0 +1,30 @@
+.card-movie-wrapper {
+  .movie-img {
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 5px 5px 2.5px black;
+  }
+
+  .movie-img:hover {
+    box-shadow: 1px 8px 20px grey;
+    transition:  box-shadow .3s ease-in;
+  }
+
+  .title {
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    margin: 10px 0px 0px 0px;
+  }
+
+  .title:hover {
+    color: #59B5D5;
+  }
+
+  .release-year {
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+  }
+}

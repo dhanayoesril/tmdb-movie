@@ -36,3 +36,37 @@ export const getTrendingMovies = (timeWindow: string = 'day') => {
       });
   };
 };
+
+export const getCategoryMovies = (category: string) => {
+  return (dispatch: Dispatch<IPayload>) => {
+    console.log('cat: ', category);
+    //   dispatch({
+    //     type: ACTION_TYPES.FETCH_TRENDING_MOVIE_PENDING,
+    //     payload: {},
+    //     error: '',
+    //   });
+    //   Axios.get(`${Config.tmdb.apiUrl}/trending/movie/${timeWindow}`, {
+    //     params: {
+    //       api_key: Config.tmdb.apiKey,
+    //     },
+    //   })
+    //     .then((res) => {
+    //       const data = res.data;
+    //       dispatch({
+    //         type: ACTION_TYPES.FETCH_TRENDING_MOVIE_SUCCESS,
+    //         payload: data,
+    //         error: '',
+    //       });
+    //     })
+    //     .catch((err) => {
+    //       const errMessage =
+    //         err?.response?.data?.status_message ||
+    //         'Error Get List Trending Movies';
+    //       dispatch({
+    //         type: ACTION_TYPES.FETCH_TRENDING_MOVIE_ERROR,
+    //         payload: {},
+    //         error: errMessage,
+    //       });
+    //     });
+  };
+};

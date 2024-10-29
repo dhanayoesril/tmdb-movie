@@ -1,9 +1,10 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import './App.css';
 
+const Layout = lazy(() => import('./components/Layout'));
 const Home = lazy(() => import('./pages/Home'));
 const Detail = lazy(() => import('./pages/Detail'));
+const Category = lazy(() => import('./pages/Category'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
@@ -15,10 +16,19 @@ function App() {
             <Home />
           </Route>
           <Route path="/:id/detail" exact>
-            <Detail />
+            <Layout>
+              <Detail />
+            </Layout>
           </Route>
-          <Route path="*" exact>
-            <NotFound />
+          <Route path="/:category" exact>
+            <Layout>
+              <Category />
+            </Layout>
+          </Route>
+          <Route path="*">
+            <Layout>
+              <NotFound />
+            </Layout>
           </Route>
         </Switch>
       </Suspense>

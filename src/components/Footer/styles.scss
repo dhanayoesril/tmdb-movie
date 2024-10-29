@@ -1,0 +1,16 @@
+@import '../../assets/variables.scss';
+
+.footer-wrapper {
+  background-color: $primary-color;
+  padding: 25px 50px 25px 50px;
+
+  &.transparent {
+    background-color: transparent;
+  }
+
+  .footer-text {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+  }
+}

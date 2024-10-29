@@ -1,0 +1,32 @@
+.home-wrapper {
+ .content-wrapper {
+  padding: 25px 50px 25px 50px;
+ }
+
+ .movie-list-wrapper {
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+ }
+
+ .trending-title {
+  font-size: 15px;
+  color: white;
+  font-weight: 550;
+ }
+}
+
+.top-trending-wrapper {
+  margin-bottom: 50px;
+  color: white;
+
+  .category {
+    font-size: 15px;
+    font-weight: 550;
+  }
+
+  .title {
+    font-size: 45px;
+    font-weight: 600;
+  }
+}
