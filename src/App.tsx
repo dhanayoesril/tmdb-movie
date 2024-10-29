@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
-import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import './App.css';
 
 const Home = lazy(() => import('./pages/Home'));
 const Detail = lazy(() => import('./pages/Detail'));

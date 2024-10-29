@@ -1,8 +1,8 @@
-import * as ACTION_TYPES from '../constants/actionTypes';
-import { Dispatch } from 'redux';
 import Axios from 'axios';
 import Config from '../configs/config';
+import { Dispatch } from 'redux';
 import { IPayload } from '../types';
+import * as ACTION_TYPES from '../constants/actionTypes';
 
 export const getTrendingMovies = (timeWindow: string = 'day') => {
   return (dispatch: Dispatch<IPayload>) => {
@@ -26,7 +26,8 @@ export const getTrendingMovies = (timeWindow: string = 'day') => {
       })
       .catch((err) => {
         const errMessage =
-          err?.response?.data?.status_message || 'Error fetching data';
+          err?.response?.data?.status_message ||
+          'Error Get List Trending Movies';
         dispatch({
           type: ACTION_TYPES.FETCH_TRENDING_MOVIE_ERROR,
           payload: {},
