@@ -127,7 +127,7 @@ const Detail = () => {
         </Col>
       </Row>
       <div className="cast-wrapper">
-        <div className="title">Cast</div>
+        <div className="title mb-2">Cast</div>
         <div className="cast-photo-wrapper">
           {dataCredits?.cast?.map((item) => (
             <CardPhoto
@@ -138,7 +138,7 @@ const Detail = () => {
             />
           ))}
         </div>
-        <div className="title mt-4">Crew</div>
+        <div className="title mt-4 mb-2">Crew</div>
         <div className="cast-photo-wrapper">
           {dataCredits?.crew?.map((item) => (
             <CardPhoto

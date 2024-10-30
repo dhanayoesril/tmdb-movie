@@ -85,34 +85,67 @@ export const getCreditMovies = (id: number) => {
 
 export const getCategoryMovies = (category: string) => {
   return (dispatch: Dispatch<IPayload>) => {
-    console.log('cat: ', category);
-    //   dispatch({
-    //     type: ACTION_TYPES.FETCH_TRENDING_MOVIE_PENDING,
-    //     payload: {},
-    //     error: '',
-    //   });
-    //   Axios.get(`${Config.tmdb.apiUrl}/trending/movie/${timeWindow}`, {
-    //     params: {
-    //       api_key: Config.tmdb.apiKey,
-    //     },
-    //   })
-    //     .then((res) => {
-    //       const data = res.data;
-    //       dispatch({
-    //         type: ACTION_TYPES.FETCH_TRENDING_MOVIE_SUCCESS,
-    //         payload: data,
-    //         error: '',
-    //       });
-    //     })
-    //     .catch((err) => {
-    //       const errMessage =
-    //         err?.response?.data?.status_message ||
-    //         'Error Get List Trending Movies';
-    //       dispatch({
-    //         type: ACTION_TYPES.FETCH_TRENDING_MOVIE_ERROR,
-    //         payload: {},
-    //         error: errMessage,
-    //       });
-    //     });
+    dispatch({
+      type: ACTION_TYPES.FETCH_CATEGORY_MOVIE_PENDING,
+      payload: {},
+      error: '',
+    });
+    Axios.get(`${Config.tmdb.apiUrl}/movie/${category}`, {
+      params: {
+        api_key: Config.tmdb.apiKey,
+      },
+    })
+      .then((res) => {
+        const data = res.data;
+        dispatch({
+          type: ACTION_TYPES.FETCH_CATEGORY_MOVIE_SUCCESS,
+          payload: data,
+          error: '',
+        });
+      })
+      .catch((err) => {
+        const errMessage =
+          err?.response?.data?.status_message ||
+          'Error Get List Category Movies';
+        dispatch({
+          type: ACTION_TYPES.FETCH_CATEGORY_MOVIE_ERROR,
+          payload: {},
+          error: errMessage,
+        });
+      });
+  };
+};
+
+export const searchMovies = (keyword: string) => {
+  return (dispatch: Dispatch<IPayload>) => {
+    dispatch({
+      type: ACTION_TYPES.FETCH_SEARCH_MOVIE_PENDING,
+      payload: {},
+      error: '',
+    });
+    Axios.get(`${Config.tmdb.apiUrl}/search/movie`, {
+      params: {
+        query: keyword,
+        page: 1,
+        api_key: Config.tmdb.apiKey,
+      },
+    })
+      .then((res) => {
+        const data = res.data;
+        dispatch({
+          type: ACTION_TYPES.FETCH_SEARCH_MOVIE_SUCCESS,
+          payload: data,
+          error: '',
+        });
+      })
+      .catch((err) => {
+        const errMessage =
+          err?.response?.data?.status_message || 'Error Search Movies';
+        dispatch({
+          type: ACTION_TYPES.FETCH_SEARCH_MOVIE_ERROR,
+          payload: {},
+          error: errMessage,
+        });
+      });
   };
 };

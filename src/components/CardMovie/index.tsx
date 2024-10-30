@@ -8,6 +8,7 @@ interface CardMovieProps {
   releaseDate: string;
   posterPath: string;
   onClick: (e: React.MouseEvent<HTMLElement>) => void;
+  width?: string;
 }
 
 const CardMovie: React.FC<CardMovieProps> = ({
@@ -15,6 +16,7 @@ const CardMovie: React.FC<CardMovieProps> = ({
   releaseDate,
   posterPath,
   onClick,
+  width = '180',
 }) => {
   return (
     <div className="card-movie-wrapper">
@@ -22,7 +24,7 @@ const CardMovie: React.FC<CardMovieProps> = ({
         className="movie-img"
         src={`${Config.tmdb.imageUrl}/original${posterPath}`}
         alt="tmdb_logo"
-        width="180"
+        width={width}
         onClick={onClick}
       />
       <div className="title">{title || ''}</div>

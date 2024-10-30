@@ -14,3 +14,33 @@ export const toHoursAndMinutes = (totalMinutes: number) => {
   const minutes = totalMinutes % 60;
   return { hours, minutes };
 };
+
+export const convertCategoryParams = (category: string) => {
+  switch (category) {
+    case 'popular':
+      return 'popular';
+    case 'now-playing':
+      return 'now_playing';
+    case 'upcoming':
+      return 'upcoming';
+    case 'top-rated':
+      return 'top_rated';
+    default:
+      return category;
+  }
+};
+
+export const convertCategoryTitle = (category: string) => {
+  switch (category) {
+    case 'popular':
+      return 'Popular';
+    case 'now-playing':
+      return 'Now Playing';
+    case 'upcoming':
+      return 'Upcoming';
+    case 'top-rated':
+      return 'Top Rated';
+    default:
+      return category;
+  }
+};

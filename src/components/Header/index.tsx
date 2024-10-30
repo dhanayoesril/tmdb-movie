@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({
   const history = useHistory();
 
   const onClickFilter = (key: string) => {
-    history.push(`/${key}`);
+    history.push(`/movies/${key}`);
   };
   return (
     <div className={`header-wrapper ${isTransparent ? 'transparent' : ''}`}>
@@ -30,15 +30,17 @@ const Header: React.FC<HeaderProps> = ({
             onClick={() => history.goBack()}
           />
         )}
-        <img
-          src={`${Config.tmdb.iconUrl}/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg`}
-          alt="tmdb_logo"
-          width="175"
-          onClick={() => history.push('/')}
-        />
+        <span className={`${!isTransparent ? 'img-wrapper' : ''}`}>
+          <img
+            src={`${Config.tmdb.iconUrl}/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg`}
+            alt="tmdb_logo"
+            width="175"
+            onClick={() => history.push('/')}
+          />
+        </span>
       </div>
       <div>
-        <DropdownButton title="Filter Movies Category" variant="default">
+        <DropdownButton title="Filter Movies" variant="default">
           <Dropdown.Item as="button" onClick={() => onClickFilter('popular')}>
             Popular
           </Dropdown.Item>

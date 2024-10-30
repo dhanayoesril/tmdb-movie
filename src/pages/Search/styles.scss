@@ -1,0 +1,26 @@
+@import '../../assets/variables.scss';
+
+.search-page-wrapper {
+  padding: 25px;
+  background-color: $primary-color;
+  color: white;
+
+  .search-desc {
+    font-size: 18px;
+
+    .result {
+      font-weight: 550;
+    }
+  }
+
+  .search-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .search-btn {
+      cursor: pointer;
+    }
+  }
+}
