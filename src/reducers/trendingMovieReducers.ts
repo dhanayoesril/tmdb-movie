@@ -1,14 +1,14 @@
 import * as ACTION_TYPES from '../constants/actionTypes';
 import { IState, IPayload } from '../types';
 
-const initialStateMovieReducers: IState = {
+const initialStateTrendingMovieReducers: IState = {
   loading: true,
   data: [],
   error: '',
 };
 
-export const movieReducers = (
-  state = initialStateMovieReducers,
+export const trendingMovieReducers = (
+  state = initialStateTrendingMovieReducers,
   action: IPayload
 ) => {
   switch (action.type) {
@@ -31,7 +31,7 @@ export const movieReducers = (
         ...state,
         loading: true,
         data: [],
-        error: action.payload,
+        error: action.error,
       };
     default:
       return state;

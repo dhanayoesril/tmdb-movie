@@ -6,11 +6,12 @@ const Home = lazy(() => import('./pages/Home'));
 const Detail = lazy(() => import('./pages/Detail'));
 const Category = lazy(() => import('./pages/Category'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const Loading = lazy(() => import('./pages/Loading'));
 
 function App() {
   return (
     <Router>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <Switch>
           <Route path="/" exact>
             <Home />
@@ -20,7 +21,7 @@ function App() {
               <Detail />
             </Layout>
           </Route>
-          <Route path="/:category" exact>
+          <Route path="/movies/:category" exact>
             <Layout>
               <Category />
             </Layout>

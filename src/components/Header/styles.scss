@@ -1,12 +1,18 @@
 @import '../../assets/variables.scss';
 
 .header-wrapper {
+  position: relative;
   background-color: $primary-color;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 50px 25px 50px;
+  padding: 15px 50px 15px 50px;
+  z-index: 1;
+
+  .back-btn {
+    cursor: pointer;
+  }
 
   &.transparent {
     background-color: transparent;
@@ -17,12 +23,12 @@
   }
 
   .btn-default {
-    color: $secondary-color;
+    color: white;
     font-size: 16px;
     font-weight: 550;
   }
   
   .btn-default:hover {
-    color:  $secondary-color;
+    color:  white;
   }
 }

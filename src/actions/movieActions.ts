@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import Config from '../configs/config';
 import { Dispatch } from 'redux';
-import { IPayload } from '../types';
+import { IDetailPayload, IPayload } from '../types';
 import * as ACTION_TYPES from '../constants/actionTypes';
 
 export const getTrendingMovies = (timeWindow: string = 'day') => {
@@ -35,6 +35,52 @@ export const getTrendingMovies = (timeWindow: string = 'day') => {
         });
       });
   };
+};
+
+export const getDetailMovie = (id: number) => {
+  return (dispatch: Dispatch<IDetailPayload>) => {
+    dispatch({
+      type: ACTION_TYPES.FETCH_DETAIL_MOVIE_PENDING,
+      payload: {},
+      error: '',
+    });
+    Axios.get(`${Config.tmdb.apiUrl}/movie/${id}`, {
+      params: {
+        api_key: Config.tmdb.apiKey,
+      },
+    })
+      .then((res) => {
+        const data = res.data;
+        dispatch({
+          type: ACTION_TYPES.FETCH_DETAIL_MOVIE_SUCCESS,
+          payload: data,
+          error: '',
+        });
+      })
+      .catch((err) => {
+        const errMessage =
+          err?.response?.data?.status_message || 'Error Get Detail Movies';
+        dispatch({
+          type: ACTION_TYPES.FETCH_DETAIL_MOVIE_ERROR,
+          payload: {},
+          error: errMessage,
+        });
+      });
+  };
+};
+
+export const getCreditMovies = (id: number) => {
+  try {
+    return Axios.get(`${Config.tmdb.apiUrl}/movie/${id}/credits`, {
+      params: {
+        api_key: Config.tmdb.apiKey,
+      },
+    });
+  } catch (err: any) {
+    const errMessage =
+      err?.response?.data?.status_message || 'Error Get Casting Data';
+    return errMessage;
+  }
 };
 
 export const getCategoryMovies = (category: string) => {

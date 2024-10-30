@@ -1,0 +1,10 @@
+@import '../../assets/variables.scss';
+
+.loading-wrapper {
+  background-color: $primary-color;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
