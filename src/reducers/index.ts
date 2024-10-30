@@ -1,10 +1,16 @@
 import { combineReducers } from 'redux';
-import { movieReducers } from './movieReducers';
+import { trendingMovieReducers } from './trendingMovieReducers';
+import { IState, IDetailState } from '../types';
+import { detailMovieReducers } from './detailMovieReducers';
 
 const rootReducer = combineReducers({
-  movieReducers,
+  trendingMovieReducers,
+  detailMovieReducers,
 });
 
 export default rootReducer;
 
-export type RootState = ReturnType<typeof rootReducer>;
+export type RootState = {
+  trendingMovieReducers: IState;
+  detailMovieReducers: IDetailState;
+};

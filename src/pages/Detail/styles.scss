@@ -1,0 +1,48 @@
+.detail-wrapper {
+  padding: 50px;
+
+  .left-content {
+    .poster-img {
+      border-radius: 10px;
+    }
+  }
+
+  .right-content {
+    color: white;
+
+    .title {
+      font-size: 40px;
+      font-weight: 600;
+    }
+
+    .content {
+      .tagline {
+        font-style: italic;
+        opacity: 0.75;
+      }
+
+      .overview-title {
+        font-size: 18px;
+        font-weight: 550;
+      }
+    }
+  }
+
+  .cast-wrapper {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+
+    .title {
+      font-size: 18px;
+      font-weight: 550;
+    }
+    
+    .cast-photo-wrapper {
+      display: flex;
+      flex-direction: row;
+      overflow: scroll;
+    }
+  }
+}

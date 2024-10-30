@@ -1,0 +1,20 @@
+@import '../../assets/variables.scss';
+
+.card-photo-wrapper {
+
+  .card-img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 125px;
+  }
+
+  .name {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .char {
+    font-size: 13px;
+    font-weight: 500;
+  }
+}
