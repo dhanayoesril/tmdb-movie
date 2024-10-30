@@ -9,6 +9,12 @@
   overflow: scroll;
  }
 
+ .pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
  .trending-title {
   margin-top: 25px;
   font-size: 15px;

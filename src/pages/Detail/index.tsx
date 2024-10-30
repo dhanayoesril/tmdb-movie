@@ -11,12 +11,13 @@ import { IGenres, IListCasting } from '../../types';
 import './styles.scss';
 
 const CardPhoto = lazy(() => import('../../components/CardPhoto'));
+const Loading = lazy(() => import('../../pages/Loading'));
 
 const Detail = () => {
   const params: { id: string } = useParams();
   const dispatch = useDispatch();
 
-  const { data: detailMovie } = useSelector(
+  const { data: detailMovie, loading: loadingDataMovie } = useSelector(
     (state: RootState) => state.detailMovieReducers
   );
 
@@ -71,54 +72,64 @@ const Detail = () => {
     (item) => item.job === 'Director'
   );
 
-  console.log('dir: ', director);
-
   const USDollar = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
   });
 
+  if (loadingDataMovie) {
+    return <Loading />;
+  }
+
   return (
-    <DetailWrapperStyles className="detail-wrapper">
+    <DetailWrapperStyles
+      className={`detail-wrapper ${
+        loadingDataMovie ? 'cp-placeholder active' : ''
+      }`}
+    >
       <Row>
         <Col md={3} sm={12} className="left-content">
-          <img
-            src={`${Config.tmdb.imageUrl}/original/${detailMovie?.poster_path}`}
-            alt="tmdb_logo"
-            width="100%"
-            className="poster-img"
-          />
+          <div className="obj-el">
+            <img
+              src={`${Config.tmdb.imageUrl}/original/${detailMovie?.poster_path}`}
+              alt="tmdb_logo"
+              width="100%"
+              className="poster-img"
+            />
+          </div>
         </Col>
         <Col md={9} sm={12} className="right-content">
-          <div className="title">{detailMovie?.title}</div>
+          <div className="title obj-el">{detailMovie?.title}</div>
           <div>
-            <span>
+            <span className="obj-el">
               {detailMovie?.release_date
                 ? formatDate(detailMovie?.release_date)
                 : ''}
             </span>
-            <span className="ml-1">
+            <span className="ml-1 obj-el">
               {detailMovie?.status ? `(${detailMovie?.status})` : null}
             </span>
-            <span className="mx-1">&#x2022;</span>
-            <span>{stringGenres}</span>
-            <span className="mx-1">&#x2022;</span>
-            <span>{stringDuration}</span>
+            <span className="mx-1 obj-el">&#x2022;</span>
+            <span className="obj-el">{stringGenres}</span>
+            <span className="mx-1 obj-el">&#x2022;</span>
+            <span className="obj-el">{stringDuration}</span>
           </div>
           <div className="mt-4 content">
-            <div className="overview-title mb-1">Genre</div>
+            <div className="overview-title mb-1 obj-el">Genre</div>
             {genres?.map((item: { id: number; name: string }) => (
-              <Badge className="mr-2" key={item?.id}>
+              <Badge className="mr-2 obj-el" key={item?.id}>
                 {item?.name}
               </Badge>
             ))}
-            <div className="tagline mt-3 mb-3">{detailMovie?.tagline}</div>
-            <div className="overview-title">Overview</div>
-            <div className="mb-3">{detailMovie?.overview}</div>
-            <div className="overview-title">Director</div>
-            <div className="mb-3">{director?.name}</div>
-            <div className="overview-title">Revenue</div>
-            <div>
+            <div className="tagline mt-3 mb-3 obj-el">
+              {detailMovie?.tagline}
+            </div>
+            <div className="overview-title obj-el">Overview</div>
+            <div className="mb-3 obj-el">{detailMovie?.overview}</div>
+            <div className="overview-title obj-el">Director</div>
+            <div className="mb-3 obj-el">{director?.name}</div>
+            <div className="overview-title obj-el">Revenue</div>
+            <div className="obj-el">
               {detailMovie?.revenue
                 ? USDollar.format(Number(detailMovie?.revenue))
                 : '$0'}

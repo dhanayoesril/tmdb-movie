@@ -20,14 +20,14 @@ export const detailMovieReducers = (
         error: '',
       };
     case ACTION_TYPES.FETCH_DETAIL_MOVIE_SUCCESS:
-      console.log('ada data: ', action);
       return {
         ...state,
-        loading: true,
+        loading: false,
         data: action.payload,
         error: '',
       };
     case ACTION_TYPES.FETCH_DETAIL_MOVIE_ERROR:
+      console.log('mashok: ', action);
       return {
         ...state,
         loading: true,

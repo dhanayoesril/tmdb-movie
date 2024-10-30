@@ -11,6 +11,8 @@ export interface IState {
   loading: boolean;
   data: Movies[];
   error: string;
+  page: number;
+  total_pages: number;
 }
 
 export interface IGenres {

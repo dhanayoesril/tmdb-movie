@@ -4,7 +4,7 @@ import { Dispatch } from 'redux';
 import { IDetailPayload, IPayload } from '../types';
 import * as ACTION_TYPES from '../constants/actionTypes';
 
-export const getTrendingMovies = (timeWindow: string = 'day') => {
+export const getTrendingMovies = (timeWindow: string = 'day', page: number) => {
   return (dispatch: Dispatch<IPayload>) => {
     dispatch({
       type: ACTION_TYPES.FETCH_TRENDING_MOVIE_PENDING,
@@ -13,6 +13,7 @@ export const getTrendingMovies = (timeWindow: string = 'day') => {
     });
     Axios.get(`${Config.tmdb.apiUrl}/trending/movie/${timeWindow}`, {
       params: {
+        page,
         api_key: Config.tmdb.apiKey,
       },
     })
@@ -83,7 +84,7 @@ export const getCreditMovies = (id: number) => {
   }
 };
 
-export const getCategoryMovies = (category: string) => {
+export const getCategoryMovies = (category: string, page: number = 1) => {
   return (dispatch: Dispatch<IPayload>) => {
     dispatch({
       type: ACTION_TYPES.FETCH_CATEGORY_MOVIE_PENDING,
@@ -92,6 +93,7 @@ export const getCategoryMovies = (category: string) => {
     });
     Axios.get(`${Config.tmdb.apiUrl}/movie/${category}`, {
       params: {
+        page,
         api_key: Config.tmdb.apiKey,
       },
     })
@@ -116,7 +118,7 @@ export const getCategoryMovies = (category: string) => {
   };
 };
 
-export const searchMovies = (keyword: string) => {
+export const searchMovies = (keyword: string, page: number) => {
   return (dispatch: Dispatch<IPayload>) => {
     dispatch({
       type: ACTION_TYPES.FETCH_SEARCH_MOVIE_PENDING,
@@ -126,7 +128,7 @@ export const searchMovies = (keyword: string) => {
     Axios.get(`${Config.tmdb.apiUrl}/search/movie`, {
       params: {
         query: keyword,
-        page: 1,
+        page,
         api_key: Config.tmdb.apiKey,
       },
     })

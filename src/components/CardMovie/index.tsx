@@ -20,15 +20,17 @@ const CardMovie: React.FC<CardMovieProps> = ({
 }) => {
   return (
     <div className="card-movie-wrapper">
-      <img
-        className="movie-img"
-        src={`${Config.tmdb.imageUrl}/original${posterPath}`}
-        alt="tmdb_logo"
-        width={width}
-        onClick={onClick}
-      />
-      <div className="title">{title || ''}</div>
-      <div className="release-year">
+      <div className="obj-el">
+        <img
+          className="movie-img"
+          src={`${Config.tmdb.imageUrl}/original${posterPath}`}
+          alt="tmdb_logo"
+          width={width}
+          onClick={onClick}
+        />
+      </div>
+      <div className="title obj-el">{title || ''}</div>
+      <div className="release-year obj-el">
         {releaseDate ? formatDate(releaseDate) : ''}
       </div>
     </div>
