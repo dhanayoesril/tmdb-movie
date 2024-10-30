@@ -67,10 +67,10 @@ const Home = () => {
           title={dataTopTrending?.title}
           overview={dataTopTrending?.overview}
         />
-        <div className="trending-title mb-2 obj-el">Trending in This Day</div>
+        <div className="trending-title mb-2 obj-el">Trending Nowadays</div>
         <div className="movie-list-wrapper">
-          {(dataMovie as Movies[]).map((item) => (
-            <div className="mr-4" key={item.id}>
+          {(dataMovie as Movies[]).map((item, idx) => (
+            <div className="mr-4" key={idx}>
               <CardMovie
                 title={item.title}
                 releaseDate={item.release_date}

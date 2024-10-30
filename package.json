@@ -27,6 +27,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "test:coverage": "npm test -- --watchAll --coverage",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -52,6 +53,12 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3",
-    "react-router-dom": "^5.3.4"
+    "react-router-dom": "^5.3.4",
+    "@reduxjs/toolkit": "^1.8.6"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^axios$": "axios/dist/node/axios.cjs"
+    }
   }
 }

@@ -12,7 +12,12 @@ const Loading = () => {
         width="175"
         className="mb-4"
       />
-      <Spinner animation="border" role="status" variant="success"></Spinner>
+      <Spinner
+        animation="border"
+        role="status"
+        variant="success"
+        data-testid="spinner"
+      ></Spinner>
     </div>
   );
 };

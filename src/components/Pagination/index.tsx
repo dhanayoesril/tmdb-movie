@@ -21,7 +21,9 @@ const PaginationPage: React.FC<PaginationPageProps> = ({
         disabled={page === 1 ? true : false}
         onClick={onClickPrevious}
       />
-      <Pagination.Item disabled>{page}</Pagination.Item>
+      <Pagination.Item disabled data-testid="page-now">
+        {page}
+      </Pagination.Item>
       <Pagination.Next
         onClick={onClickNext}
         disabled={page === totalPages ? true : false}
