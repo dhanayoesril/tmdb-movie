@@ -7,7 +7,7 @@ ReactJS, TypeScript, Bootstrap, SCSS
 
 ## Features
 1. Full Responsive
-2. Card List (Title, Release Year, Poster) : Horizontal Scrollable (on Home Page)
+2. Card List (Title, Release Year, Poster) : Horizontal Scrollable (on Home Page) & Mapping in Screen on Other Page
 3. Detail Page (Synopsis, Main Cast, Director, Poster)
 4. Search Movies by Title
 5. Filter Movies by Category (Now Playing, Popular, Top Rated, Upcoming)
