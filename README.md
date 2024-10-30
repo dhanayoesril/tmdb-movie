@@ -21,10 +21,10 @@ I've already deployed this project on Vercel, you can access it from this link (
 
 ## How to Run Local
 1. Clone this repo
-2. npm install
-3. npm run start
+2. Open .env.example and copy all code
+3. Create new file => .env and paste the code
+4. npm install
+5. npm run start
 
 ## How to Run Unit Test
-1. Clone this repo
-2. npm install
-3. npm run test:coverage
+1. npm run test:coverage
