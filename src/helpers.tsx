@@ -1,6 +1,6 @@
 import { SHORT_MONTH } from './constants/general';
 
-export const formatDate = (payload: string) => {
+export const formatDate = (payload: string | null) => {
   if (!payload) return '-';
   const date = new Date(payload);
   const day = date.getDate();

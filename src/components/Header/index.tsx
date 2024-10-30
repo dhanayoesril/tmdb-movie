@@ -29,12 +29,14 @@ const Header: React.FC<HeaderProps> = ({
               size={25}
               className="mr-4 back-btn"
               onClick={() => history.goBack()}
+              data-testid="back-btn"
             />
             <House
               color="white"
               size={25}
               className="ml-4 mr-4 btn-home"
               onClick={() => history.push('/')}
+              data-testid="home-btn"
             />
           </>
         )}
@@ -44,6 +46,7 @@ const Header: React.FC<HeaderProps> = ({
             alt="tmdb_logo"
             width="175"
             onClick={() => history.push('/')}
+            data-testid="header-img"
           />
         </span>
       </div>
@@ -52,20 +55,34 @@ const Header: React.FC<HeaderProps> = ({
           title="Filter Movies"
           variant="default"
           className="obj-el"
+          data-testid="header-dropdown"
         >
-          <Dropdown.Item as="button" onClick={() => onClickFilter('popular')}>
+          <Dropdown.Item
+            as="button"
+            onClick={() => onClickFilter('popular')}
+            data-testid="dropdown-popular"
+          >
             Popular
           </Dropdown.Item>
           <Dropdown.Item
             as="button"
             onClick={() => onClickFilter('now-playing')}
+            data-testid="dropdown-now-playing"
           >
             Now Playing
           </Dropdown.Item>
-          <Dropdown.Item as="button" onClick={() => onClickFilter('upcoming')}>
+          <Dropdown.Item
+            as="button"
+            onClick={() => onClickFilter('upcoming')}
+            data-testid="dropdown-upcoming"
+          >
             Upcoming
           </Dropdown.Item>
-          <Dropdown.Item as="button" onClick={() => onClickFilter('top-rated')}>
+          <Dropdown.Item
+            as="button"
+            onClick={() => onClickFilter('top-rated')}
+            data-testid="dropdown-top-rated"
+          >
             Top Rated
           </Dropdown.Item>
         </DropdownButton>
