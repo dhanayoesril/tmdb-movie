@@ -9,15 +9,20 @@ import { convertCategoryParams, convertCategoryTitle } from '../../helpers';
 import './styles.scss';
 
 const CardMovie = lazy(() => import('../../components/CardMovie'));
+const Pagination = lazy(() => import('../../components/Pagination'));
+const Loading = lazy(() => import('../../pages/Loading'));
 
 const Category = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const category = useParams<{ category: string }>().category;
 
-  const { data: dataCategory } = useSelector(
-    (state: RootState) => state.categoryMovieReducers
-  );
+  const {
+    data: dataCategory,
+    page,
+    total_pages,
+    loading: loadingDataCategory,
+  } = useSelector((state: RootState) => state.categoryMovieReducers);
 
   useEffect(() => {
     dispatch(getCategoryMovies(convertCategoryParams(category)));
@@ -28,10 +33,33 @@ const Category = () => {
     history.push(`/${id}/detail`);
   };
 
+  let activeClass = 'cp-placeholder';
+  if (loadingDataCategory) activeClass += ' active';
+
+  if (loadingDataCategory) {
+    return <Loading />;
+  }
+
   return (
-    <div className="category-wrapper">
-      <div className="title">
+    <div className={`category-wrapper ${activeClass}`}>
+      <div className="title obj-el">
         {category ? `${convertCategoryTitle(category)} Movies` : ''}
+      </div>
+      <div className="pagination-wrapper obj-el">
+        <Pagination
+          page={page}
+          totalPages={total_pages}
+          onClickPrevious={() =>
+            dispatch(
+              getCategoryMovies(convertCategoryParams(category), page - 1)
+            )
+          }
+          onClickNext={() =>
+            dispatch(
+              getCategoryMovies(convertCategoryParams(category), page + 1)
+            )
+          }
+        />
       </div>
       <Row>
         {dataCategory.map((item) => (

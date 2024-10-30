@@ -28,14 +28,14 @@ const TopTrending: React.FC<TopTrendingProps> = ({ title, overview }) => {
     <Row>
       <Col md={4}>
         <div className="top-trending-wrapper">
-          <div className="category">Top 1 Trending</div>
-          <div className="title">{title || ''}</div>
-          <div className="overview">{overview || ''}</div>
+          <div className="category obj-el">Top 1 Trending</div>
+          <div className="title obj-el">{title || ''}</div>
+          <div className="overview obj-el">{overview || ''}</div>
         </div>
       </Col>
       <Col md={4}></Col>
       <Col md={4}>
-        <div className="search-wrapper">
+        <div className="search-wrapper obj-el">
           <input
             className="form-control mr-3"
             placeholder="Search Movies by Title"

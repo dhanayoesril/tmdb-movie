@@ -5,6 +5,8 @@ const initialStateSearchMovieReducers: IState = {
   loading: true,
   data: [],
   error: '',
+  page: 0,
+  total_pages: 0,
 };
 
 export const searchMovieReducers = (
@@ -18,13 +20,17 @@ export const searchMovieReducers = (
         loading: true,
         data: [],
         error: '',
+        page: 0,
+        total_pages: 0,
       };
     case ACTION_TYPES.FETCH_SEARCH_MOVIE_SUCCESS:
       return {
         ...state,
-        loading: true,
+        loading: false,
         data: action.payload.results,
         error: '',
+        page: action.payload.page,
+        total_pages: action.payload.total_pages,
       };
     case ACTION_TYPES.FETCH_SEARCH_MOVIE_ERROR:
       return {
@@ -32,6 +38,8 @@ export const searchMovieReducers = (
         loading: true,
         data: [],
         error: action.error,
+        page: 0,
+        total_pages: 0,
       };
     default:
       return state;

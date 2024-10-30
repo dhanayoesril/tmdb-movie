@@ -10,9 +10,10 @@
   padding: 15px 25px 15px 25px;
   z-index: 1;
 
-  .back-btn {
+  .back-btn, .btn-home {
     cursor: pointer;
   }
+  
 
   &.transparent {
     background-color: transparent;
@@ -34,6 +35,11 @@
 
   @media only screen and (max-width: 768px) {
     .img-wrapper {
+      display: none;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .btn-home {
       display: none;
     }
   }

@@ -33,9 +33,7 @@ function App() {
             </Layout>
           </Route>
           <Route path="*">
-            <Layout>
-              <NotFound />
-            </Layout>
+            <NotFound />
           </Route>
         </Switch>
       </Suspense>
