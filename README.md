@@ -15,7 +15,7 @@ ReactJS, TypeScript, Bootstrap, SCSS
 6. Page: Home Page, Detail Page, Search Result Page, Category Page, Loading Page (Handle isLoading), 404 Not Found Page (Handle Undefined Route)
 
 ## Deployed Project Link
-I'm already deploy this project in Vercel, you can access from this link :
+I've already deployed this project on Vercel, you can access it from this link (but you need to log in to Vercel first). :
 `https://tmdb-movie-git-development-yusril-sapta-wardhanas-projects.vercel.app/`
 
 ## How to Run Local
