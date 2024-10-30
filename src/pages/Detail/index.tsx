@@ -116,8 +116,8 @@ const Detail = () => {
           </div>
           <div className="mt-4 content">
             <div className="overview-title mb-1 obj-el">Genre</div>
-            {genres?.map((item: { id: number; name: string }) => (
-              <Badge className="mr-2 obj-el" key={item?.id}>
+            {genres?.map((item: { id: number; name: string }, idx: number) => (
+              <Badge className="mr-2 obj-el" key={idx}>
                 {item?.name}
               </Badge>
             ))}
@@ -140,23 +140,23 @@ const Detail = () => {
       <div className="cast-wrapper">
         <div className="title mb-2">Cast</div>
         <div className="cast-photo-wrapper">
-          {dataCredits?.cast?.map((item) => (
+          {dataCredits?.cast?.map((item, idx) => (
             <CardPhoto
               name={item.name}
               character={item.character}
               photoPath={item.profile_path}
-              key={item.id}
+              key={idx}
             />
           ))}
         </div>
         <div className="title mt-4 mb-2">Crew</div>
         <div className="cast-photo-wrapper">
-          {dataCredits?.crew?.map((item) => (
+          {dataCredits?.crew?.map((item, idx) => (
             <CardPhoto
               name={item.name}
               character={item.job}
               photoPath={item.profile_path}
-              key={item.id}
+              key={idx}
             />
           ))}
         </div>
