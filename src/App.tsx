@@ -5,6 +5,7 @@ const Layout = lazy(() => import('./components/Layout'));
 const Home = lazy(() => import('./pages/Home'));
 const Detail = lazy(() => import('./pages/Detail'));
 const Category = lazy(() => import('./pages/Category'));
+const Search = lazy(() => import('./pages/Search'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Loading = lazy(() => import('./pages/Loading'));
 
@@ -24,6 +25,11 @@ function App() {
           <Route path="/movies/:category" exact>
             <Layout>
               <Category />
+            </Layout>
+          </Route>
+          <Route path="/search" exact>
+            <Layout>
+              <Search />
             </Layout>
           </Route>
           <Route path="*">

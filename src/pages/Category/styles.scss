@@ -1,0 +1,12 @@
+@import '../../assets/variables.scss';
+
+.category-wrapper {
+  color: white;
+  padding: 25px;
+  background-color: $primary-color;
+
+  .title {
+    font-size: 20px;
+    font-weight: 600px;
+  }
+}
