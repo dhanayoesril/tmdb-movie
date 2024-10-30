@@ -21,8 +21,8 @@ I've already deployed this project on Vercel, you can access it from this link (
 
 ## How to Run Local
 1. Clone this repo
-2. Open .env.example and copy all code
-3. Create new file => .env and paste the code
+2. Open file : `.env.example` and copy all code
+3. Create new file : `.env` and paste the code & save
 4. npm install
 5. npm run start
 
